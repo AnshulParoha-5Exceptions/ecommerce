@@ -1,0 +1,41 @@
+
+.product-card {
+    display: flex;
+  }
+  
+  .product-image {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .product-details {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .buy-now-icon {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 5px;
+  }
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+  }
+  
+  .product-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .navbar-expand-lg{
+    background: #F7F8FB;
+  }
+  .rounded-pill{
+    height: 60px;
+    width: 200px;
+  }
