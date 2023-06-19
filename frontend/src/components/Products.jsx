@@ -68,8 +68,11 @@ const Products = () => {
   
     setFilteredProducts(sortedProducts);
   }, [sortOption, selectedCategory, selectedBrand, searchQuery, allProducts]);
-  
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when currentPage changes
+  }, [currentPage]);
+  
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const displayedProducts = filteredProducts.slice(startIndex, endIndex);
