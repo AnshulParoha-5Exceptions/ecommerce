@@ -2,8 +2,10 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
 include 'database.php';
+include 'generateToken.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents("php://input"));
@@ -37,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $response['message'] = 'Login successful';
             $response['user_id'] = $userId;
             $response['user_name'] = $userName;
+            // $response['token'] = generateRandomCode(10);
         } else {
             $response['status'] = 'error';
             $response['message'] = 'Invalid email or password';
@@ -54,6 +57,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Close the database connection
     $database->closeConnection();
 } else {
-    http_response_code(405);
     echo json_encode(array('status' => 'error', 'message' => 'GET method is not allowed.'));
 }

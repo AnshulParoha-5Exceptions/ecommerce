@@ -37,8 +37,13 @@ const NavTop = () => {
             </li>
           </ul>
 
+          <li className="nav-link">
+              <button className="nav-link fs-6 text-white me-4" onClick={()=>handleNavigation('cart')}>
+                CART
+              </button>
+            </li>
 
-
+            
           <ul className="navbar-nav ml-auto">
             <li className="nav-link">
               <button className="nav-link fs-6 text-white me-4" onClick={()=>handleNavigation('signup')}>
@@ -49,12 +54,6 @@ const NavTop = () => {
             <li className="nav-link">
               <button className="nav-link fs-6 text-white me-4" onClick={()=>handleNavigation('login')}>
                 LOGIN
-              </button>
-            </li>
-
-            <li className="nav-link">
-              <button className="nav-link fs-6 text-white me-4" onClick={()=>handleNavigation('cart')}>
-                CART
               </button>
             </li>
           </ul>

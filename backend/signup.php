@@ -2,16 +2,12 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
 include 'database.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode(file_get_contents("php://input"));
-
-    // $name = $_POST['name'];
-    // $email = $_POST['email'];
-    // $password = $_POST['password'];
-    // $response = array();
 
     $name = $data->name;
     $email = $data->email;
@@ -39,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Checking if email exists or not
         if ($statement->num_rows > 0) {
             $response['status'] = 'error';
-            $response['message'] = 'User or email already registered!';
+            $response['message'] = 'User email already registered!';
         } else {
             // Prepare and execute the query to insert a new user
             $insertQuery = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
@@ -68,6 +64,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Close the database connection
     $database->closeConnection();
 } else {
-    http_response_code(405);
     echo json_encode(array('status' => 'error', 'message' => 'GET method is not allowed.'));
 }

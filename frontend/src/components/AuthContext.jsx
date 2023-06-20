@@ -1,3 +1,119 @@
+import React, { createContext, useState } from 'react';
+
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [currentPage, setCurrentPage] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isLoggedin, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
+
+  const handleNavigation = (page, product) => {
+    setCurrentPage(page);
+    setSelectedProduct(product);
+  };
+
+  const handleLogin = (username) => {
+    setUsername(username);
+    setIsLoggedIn(true)
+  }
+
+  const handleLogout = () => {
+    setUsername('');
+    setIsLoggedIn(false);
+  }
+
+  const contextValue = {
+    currentPage,
+    selectedProduct,
+    isLoggedin,
+    username,
+    handleNavigation,
+    handleLogin,
+    handleLogout
+  };
+
+  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // AuthContext.jsx
 // import React, { createContext, useState } from 'react';
 
@@ -38,25 +154,3 @@
 
 
 
-// AuthContext.jsx
-import React, { createContext, useState } from 'react';
-
-export const AuthContext = createContext();
-
-export const AuthProvider = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState('');
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const handleNavigation = (page, product) => { 
-    setCurrentPage(page);
-    setSelectedProduct(product);
-  };
-
-  const contextValue = {
-    currentPage,
-    selectedProduct,
-    handleNavigation,
-  };
-
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
-};

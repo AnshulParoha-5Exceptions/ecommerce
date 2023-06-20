@@ -128,7 +128,9 @@ const Products = () => {
                         <FontAwesomeIcon icon={faStar}/>
                       </div>
                       <div className="d-flex justify-content-between mt-3">
-                        <button className="btn btn-warning">
+                        <button className="btn btn-warning"
+                        onClick={() => handleNavigation('cart', product)}
+                        >
                           <FontAwesomeIcon icon={faShoppingCart} className="me-2" />
                           Add to Cart
                         </button>
